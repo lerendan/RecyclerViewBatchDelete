@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
     android:layout_marginLeft="2dp"
     android:layout_marginRight="2dp"
+    android:layout_marginTop="5dp"
     android:background="#fff293">
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="1111"
-        android:textSize="30sp" />
+        android:layout_toLeftOf="@+id/mCheckBox"
+        android:padding="4dp"
+        android:text="Crime Title"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_toLeftOf="@id/mCheckBox"
+        android:padding="4dp"
+        android:text="2012"
+        android:textSize="15sp" />
+
+    <CheckBox
+        android:id="@+id/mCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="4dp" />
+
+</RelativeLayout>
