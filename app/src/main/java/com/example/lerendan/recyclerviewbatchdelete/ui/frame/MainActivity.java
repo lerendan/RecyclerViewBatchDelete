@@ -8,9 +8,10 @@ import android.os.Bundle;
 import com.example.lerendan.recyclerviewbatchdelete.R;
 import com.example.lerendan.recyclerviewbatchdelete.ui.details.ListFragment;
 
+/**
+ * Created by lerendan on 2016/8/3.
+ */
 public class MainActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,5 @@ public class MainActivity extends AppCompatActivity {
             fragment = new ListFragment();
             fm.beginTransaction().add(R.id.container, fragment).commit();
         }
-
     }
-
-
-
 }

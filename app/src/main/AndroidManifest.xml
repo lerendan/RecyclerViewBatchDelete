@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.frame.ContentPagerActivity"/>
+        <activity android:name=".ui.frame.ContentPagerActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ui.frame.MainActivity"/>
     </application>
 
 </manifest>

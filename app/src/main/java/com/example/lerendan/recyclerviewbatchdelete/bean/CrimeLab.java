@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Administrator on 2016/8/2.
+ * Created by lerendan on 2016/8/2.
  */
 
 public class CrimeLab {
@@ -16,14 +16,19 @@ public class CrimeLab {
 
     private CrimeLab(Context context) {
         mCrimes = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            Crime crime = new Crime();
-            crime.setTitle("Crime #"+i);
-            crime.setSolved(i%2==0);
-            mCrimes.add(crime);
-
-        }
+//        for (int i = 0; i < 100; i++) {
+//            Crime crime = new Crime();
+//            crime.setTitle("Crime #"+i);
+//            crime.setSolved(i%2==0);
+//            mCrimes.add(crime);
+//        }
     }
+
+    public void addCrime(Crime c){
+        mCrimes.add(c);
+    }
+
+    public void delete(Crime c){mCrimes.remove(c);}
 
     public List<Crime> getCrimes() {
         return mCrimes;

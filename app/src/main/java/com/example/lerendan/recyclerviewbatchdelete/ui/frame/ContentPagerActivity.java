@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Administrator on 2016/8/3.
+ * Created by lerendan on 2016/8/3.
  */
 
 public class ContentPagerActivity extends AppCompatActivity {
@@ -39,10 +39,10 @@ public class ContentPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content_pager);
 
         UUID crimeID = (UUID) getIntent().getSerializableExtra(EXTRA_CRIME_ID);
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mCrimes = CrimeLab.get(this).getCrimes();
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int position) {

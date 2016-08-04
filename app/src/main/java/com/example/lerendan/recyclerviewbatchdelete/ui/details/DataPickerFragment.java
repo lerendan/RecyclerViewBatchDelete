@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -19,14 +18,14 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * Created by Administrator on 2016/8/3.
+ * Created by lerendan on 2016/8/3.
  */
 
 public class DataPickerFragment extends DialogFragment {
 
     public static final String EXTRA_DATE= "extra_data";
     private static final String ARG_DATE = "data";
-    private DatePicker mDataPicker;
+    private DatePicker mDatePicker;
 
     public static DataPickerFragment newInstance(Date date) {
 
@@ -49,8 +48,8 @@ public class DataPickerFragment extends DialogFragment {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_date,null);
-        mDataPicker = (DatePicker) v.findViewById(R.id.dialog_datapicker);
-        mDataPicker.init(year,month,day,null);
+        mDatePicker = (DatePicker) v.findViewById(R.id.dialog_datepicker);
+        mDatePicker.init(year,month,day,null);
 
 
         return new AlertDialog.Builder(getActivity())
@@ -59,9 +58,9 @@ public class DataPickerFragment extends DialogFragment {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        int year= mDataPicker.getYear();
-                        int month= mDataPicker.getMonth();
-                        int day= mDataPicker.getDayOfMonth();
+                        int year= mDatePicker.getYear();
+                        int month= mDatePicker.getMonth();
+                        int day= mDatePicker.getDayOfMonth();
                         Date date = new GregorianCalendar(year,month,day).getTime();
                         sendResult(Activity.RESULT_OK,date);
                     }
