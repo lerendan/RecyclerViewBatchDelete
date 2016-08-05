@@ -39,7 +39,7 @@ public class ImageFragment extends DialogFragment {
         File photoFile = (File) getArguments().getSerializable(BIGIMAGE);
         Bitmap bitmap = PictureUtils.getScaleBitmap(photoFile.getPath(),getActivity());
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_image,null);
-        ImageView imageView = (ImageView) v.findViewById(R.id.image);
+        ImageView imageView = (ImageView) v.findViewById(R.id.bigimage);
         imageView.setImageBitmap(bitmap);
 
 

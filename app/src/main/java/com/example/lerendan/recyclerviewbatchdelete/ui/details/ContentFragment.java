@@ -39,6 +39,8 @@ public class ContentFragment extends Fragment{
 
     private static final String ARG_CRIME_ID = "crime_id";
     private static final String DIALOG_DATE = "DialogData";
+    private static final String DIALOG_IMAGE = "DialogImage";
+
     private static final int REQUEST_DATE = 0;
     private static final int REQUEST_PHOTO = 2;
 
@@ -94,9 +96,18 @@ public class ContentFragment extends Fragment{
                 startActivityForResult(captureImage,REQUEST_PHOTO);
             }
         });
+
         mPhotoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mPhotoFile==null||!mPhotoFile.exists()){
+//                    mPhotoView.setImageDrawable(null);
+                }else {
+                    FragmentManager manager = getFragmentManager();
+                    ImageFragment dialog = ImageFragment.newInstance(mPhotoFile);
+                    dialog.show(manager,DIALOG_IMAGE);
+                }
+
 
             }
         });
