@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RecyclerView</string>
+    <string name="app_name">Lerendan</string>
 
     <string name="new_crime">New Crime</string>
     <string name="show_subtitle">Show Subtitle</string>

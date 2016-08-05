@@ -10,12 +10,16 @@ import java.util.UUID;
 public class Crime {
     private UUID mId;
     private String mTitle;
-    private Date mData;
+    private Date mDate;
     private boolean mSolved;
 
     public Crime(){
-        mId = UUID.randomUUID();
-        mData = new Date();
+        this(UUID.randomUUID());
+    }
+
+    public Crime(UUID id){
+        mId = id;
+        mDate = new Date();
     }
 
     public UUID getId() {
@@ -31,11 +35,11 @@ public class Crime {
     }
 
     public Date getData() {
-        return mData;
+        return mDate;
     }
 
     public void setData(Date mData) {
-        this.mData = mData;
+        this.mDate = mData;
     }
 
     public boolean isSolved() {

@@ -73,11 +73,10 @@ public class ListFragment extends Fragment {
             myAdapter = new MyAdapter(getActivity(), crimes);
             mRecyclerView.setAdapter(myAdapter);
         } else {
+            myAdapter.setCrimes(crimes);
             myAdapter.notifyDataSetChanged();
         }
         updateSubtitle();
-
-
     }
 
     @Override

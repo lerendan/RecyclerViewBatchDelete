@@ -109,12 +109,19 @@ public class ContentFragment extends Fragment{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_item_delete_crime:
-                CrimeLab.get(getActivity()).delete(mCrime);
+                CrimeLab.get(getActivity()).deleteCrime(mCrime);
                 getActivity().finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mCrime.setTitle(edt_title.getText().toString());
+        mCrime.setSolved(cb_solved.isChecked());
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
     }
 }

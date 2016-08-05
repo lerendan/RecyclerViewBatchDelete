@@ -50,6 +50,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return mData.size();
     }
 
+    public void setCrimes(List<Crime> crimes){
+        mData = crimes;
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
         private TextView mDataTextView;
