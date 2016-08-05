@@ -1,7 +1,7 @@
 package com.example.lerendan.recyclerviewbatchdelete.db;
 
 /**
- * Created by Administrator on 2016/8/4.
+ * Created by lerendan on 2016/8/4.
  */
 
 public class CrimeDbSchema {

@@ -4,12 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 import com.example.lerendan.recyclerviewbatchdelete.db.CrimeBaseHelper;
 import com.example.lerendan.recyclerviewbatchdelete.db.CrimeCursorWrapper;
 import com.example.lerendan.recyclerviewbatchdelete.db.CrimeDbSchema;
 import com.example.lerendan.recyclerviewbatchdelete.db.CrimeDbSchema.CrimeTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -47,6 +49,7 @@ public class CrimeLab {
 
     /**
      * Crimes单例
+     *
      * @param context
      * @return
      */
@@ -59,6 +62,7 @@ public class CrimeLab {
 
     /**
      * 获取所有Crime
+     *
      * @return crimes
      */
     public List<Crime> getCrimes() {
@@ -78,6 +82,7 @@ public class CrimeLab {
 
     /**
      * 根据UUID获取Crime
+     *
      * @param id
      * @return crime
      */
@@ -95,7 +100,21 @@ public class CrimeLab {
     }
 
     /**
+     * 定位图片文件
+     * @param crime
+     * @return
+     */
+    public File getPhotoFile(Crime crime) {
+        File externalFileDir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        if (externalFileDir == null) {
+            return null;
+        }
+        return new File(externalFileDir, crime.getPhotoFilename());
+    }
+
+    /**
      * 根据crime创建ContentValues
+     *
      * @param crime
      * @return
      */
@@ -103,7 +122,7 @@ public class CrimeLab {
         ContentValues values = new ContentValues();
         values.put(CrimeTable.Cols.UUID, crime.getId().toString());
         values.put(CrimeTable.Cols.TITLE, crime.getTitle());
-        values.put(CrimeTable.Cols.DATE, crime.getData().getTime());
+        values.put(CrimeTable.Cols.DATE, crime.getDate().getTime());
         values.put(CrimeTable.Cols.SOLVED, crime.isSolved() ? 1 : 0);
         return values;
     }

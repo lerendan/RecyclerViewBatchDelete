@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by Administrator on 2016/8/5.
+ * Created by lerendan on 2016/8/5.
  */
 
 public class CrimeCursorWrapper extends CursorWrapper {

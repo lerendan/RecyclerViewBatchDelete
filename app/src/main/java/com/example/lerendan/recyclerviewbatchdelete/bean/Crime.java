@@ -13,11 +13,11 @@ public class Crime {
     private Date mDate;
     private boolean mSolved;
 
-    public Crime(){
+    public Crime() {
         this(UUID.randomUUID());
     }
 
-    public Crime(UUID id){
+    public Crime(UUID id) {
         mId = id;
         mDate = new Date();
     }
@@ -34,12 +34,12 @@ public class Crime {
         this.mTitle = mTitle;
     }
 
-    public Date getData() {
+    public Date getDate() {
         return mDate;
     }
 
-    public void setData(Date mData) {
-        this.mDate = mData;
+    public void setData(Date mDate) {
+        this.mDate = mDate;
     }
 
     public boolean isSolved() {
@@ -48,5 +48,9 @@ public class Crime {
 
     public void setSolved(boolean mSolved) {
         this.mSolved = mSolved;
+    }
+
+    public String getPhotoFilename() {
+        return "IMG_" + getId().toString() + ".jpg";
     }
 }

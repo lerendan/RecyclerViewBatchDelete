@@ -63,14 +63,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(itemView);
             itemView.setOnClickListener(this);
             mTitleTextView = (TextView) itemView.findViewById(R.id.title);
-            mDataTextView = (TextView) itemView.findViewById(R.id.data);
+            mDataTextView = (TextView) itemView.findViewById(R.id.date);
             mCheckBox = (CheckBox) itemView.findViewById(R.id.mCheckBox);
         }
 
         public void bindCrime(Crime crime){
             mCrime =crime;
             mTitleTextView.setText(mCrime.getTitle());
-            mDataTextView.setText(mCrime.getData().toString());
+            mDataTextView.setText(mCrime.getDate().toString());
             mCheckBox.setChecked(mCrime.isSolved());
         }
 
