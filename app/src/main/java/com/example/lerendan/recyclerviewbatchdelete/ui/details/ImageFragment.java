@@ -1,5 +1,6 @@
 package com.example.lerendan.recyclerviewbatchdelete.ui.details;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import java.io.File;
 public class ImageFragment extends DialogFragment {
 
     public static final String BIGIMAGE = "big_image";
+    private File mPhotoFile;
+    private ImageView mImageView;
+    private Bitmap mBitmap;
 
     public static ImageFragment newInstance(File photoFile) {
         Bundle args = new Bundle();
@@ -32,17 +36,17 @@ public class ImageFragment extends DialogFragment {
         return fragment;
     }
 
-    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        super.onCreateDialog(savedInstanceState);
-        File photoFile = (File) getArguments().getSerializable(BIGIMAGE);
-        Bitmap bitmap = PictureUtils.getScaleBitmap(photoFile.getPath(),getActivity());
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_image,null);
-        ImageView imageView = (ImageView) v.findViewById(R.id.bigimage);
-        imageView.setImageBitmap(bitmap);
 
+        mPhotoFile = (File) getArguments().getSerializable(BIGIMAGE);
+        mBitmap = PictureUtils.getScaleBitmap(mPhotoFile.getPath(), getActivity());
 
-        return new AlertDialog.Builder(getActivity()).setView(R.layout.dialog_image).create();
+        View v = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_image, null);
+        mImageView = (ImageView) v.findViewById(R.id.bigimage);
+
+        mImageView.setImageBitmap(mBitmap);
+
+        return new AlertDialog.Builder(getActivity()).setView(v).create();
     }
 }
