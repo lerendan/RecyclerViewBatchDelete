@@ -1,1 +1,2 @@
-recyclerview firstadd
+recyclerview    
+缩略图
