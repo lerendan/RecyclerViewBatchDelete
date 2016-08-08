@@ -1,2 +1,3 @@
 recyclerview    
-缩略图
+bitmap 缩放
+DialogFragment
